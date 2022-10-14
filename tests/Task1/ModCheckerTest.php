@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Tests;
+declare(strict_types=1);
+
+namespace App\Tests\Task1;
 
 use PHPUnit\Framework\TestCase;
 use App\Task1\ModChecker;
