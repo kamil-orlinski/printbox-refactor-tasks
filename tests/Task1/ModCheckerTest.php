@@ -19,16 +19,19 @@ class ModCheckerTest extends TestCase
     }
 
     /** @dataProvider getCorrectData */
-    public function testCheckReturnedValueByCorrectdata(int $number, string|int $returnedValue): void {
+    public function testCheckReturnedValueByCorrectdata(int $number, string|int $returnedValue): void
+    {
         $this->assertEquals($returnedValue, $this->modChecker->match($number));
     }
 
     /** @dataProvider getIncorrectData */
-    public function testCheckedReturnedValueByIncorrectData(int $number, string|int $returnedValue): void {
+    public function testCheckedReturnedValueByIncorrectData(int $number, string|int $returnedValue): void
+    {
         $this->assertNotEquals($returnedValue, $this->modChecker->match($number));
     }
 
-    private function getCorrectData(): array {
+    private function getCorrectData(): array
+    {
         return [
             [3, 'Tom'],
             [5, 'Ula'],
@@ -37,7 +40,8 @@ class ModCheckerTest extends TestCase
         ];
     }
 
-    private function getIncorrectData(): array {
+    private function getIncorrectData(): array
+    {
         return [
             [3, 'Dawid'],
             [5, 'Antek'],

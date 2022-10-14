@@ -27,20 +27,23 @@ class VersionComparatorTest extends TestCase
     }
 
     /** @dataProvider getVersionExampleData */
-    public function testCompareVersions(string $version1, string $version2, int $result): void {
+    public function testCompareVersions(string $version1, string $version2, int $result): void
+    {
         $this->assertEquals($result, $this->comparator->compare($version1, $version2));
     }
 
     /** @dataProvider getIncorrectData */
-    public function testShouldThrowExceptionWhenPassIncorrectData(string $version1, string $version2, int $result): void {
+    public function testShouldThrowExceptionWhenPassIncorrectData(string $version1, string $version2, int $result): void
+    {
         $this->expectException(InvalidVersionException::class);
 
         $this->comparator->compare($version1, $version2);
     }
 
-    private function getVersionExampleData(): array {
+    private function getVersionExampleData(): array
+    {
 
-        return  [
+        return [
             ['1.0.0', '1.0.1', 1],
             ['1.1', '1.0.1', -1],
             ['1.0.0', '1.0', 0],
@@ -50,8 +53,9 @@ class VersionComparatorTest extends TestCase
         ];
     }
 
-    private function getIncorrectData(): array {
-        return  [
+    private function getIncorrectData(): array
+    {
+        return [
             ['1.0.0.0', '1.0.1', 1],
             ['ab.1.1', '1.0.1', -1],
             ['1.0.0', 'lk.1.0', 0],
